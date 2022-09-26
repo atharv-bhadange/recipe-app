@@ -1,0 +1,7 @@
+; exclude file from linting
+[flake8]
+exclude = 
+    migrations,
+    __pycache__,
+    manage.py,
+    settings.py,
