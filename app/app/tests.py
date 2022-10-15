@@ -11,12 +11,12 @@ class ClacTest(SimpleTestCase):
 
     def test_add_numbers(self):
         """Test adding numbers together"""
-        res = calc.add(5,2)
+        res = calc.add(5, 2)
 
-        self.assertEqual(res,7)
-    
+        self.assertEqual(res, 7)
+
     def test_subtract_numbers(self):
         """Test subtracting numbers"""
-        res = calc.subtract(10,15)
+        res = calc.subtract(10, 15)
 
-        self.assertEqual(res,5)
+        self.assertEqual(res, 5)
