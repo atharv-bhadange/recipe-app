@@ -2,6 +2,7 @@
 Tests for models
 """
 
+import email
 from django.test import TestCase
 from django.contrib.auth import get_user_model  # Helper function to get the default user model
 
@@ -37,3 +38,13 @@ class ModelTests(TestCase):
         """Test that creating a user without email raises a ValueError"""
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user('', 'test123')
+
+    def test_create_superuser(self):
+        """Test creating a superuser"""
+        user = get_user_model().objects.create_superuser(
+            'test@example.com',
+            'test@123',
+        )
+
+        self.assertTrue(user.is_superuser)  # Field provided by PermissionsMixin
+        self.assertTrue(user.is_staff)
