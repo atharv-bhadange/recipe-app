@@ -11,7 +11,7 @@ class UserManager(BaseUserManager):
 
     def create_user(self, email, password=None, **extra_fields):  # automatically adapts keyword args
         """Create, save and return new user"""
-        user = self.model(email=email, **extra_fields)  # basically creating a new user object
+        user = self.model(email=self.normalize_email(email), **extra_fields)  # basically creating a new user object
         user.set_password(password)
         user.save(using=self._db)
 
